@@ -1,0 +1,6 @@
+framework module VerloopSDK {
+  umbrella header "VerloopSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
