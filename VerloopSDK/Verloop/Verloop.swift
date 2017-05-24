@@ -15,6 +15,7 @@ class Verloop {
     
     func showConversation(parentViewController:UIViewController) {
         let vc = VerloopChatViewController.init(chatUrl: "https://www.google.co.in");
-        parentViewController.present(vc, animated: true, completion: nil)
+        let navVC = UINavigationController.init(rootViewController: vc)
+        parentViewController.present(navVC, animated: true, completion: nil)
     }
 }

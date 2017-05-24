@@ -39,20 +39,12 @@ class VerloopChatViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["webView" : self.webView!]))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["webView" : self.webView!]))
         
-        self.cancelButton = UIButton.init(type: UIButtonType.system)
-        self.cancelButton?.setTitle("Cancel", for: UIControlState.normal)
-        self.cancelButton?.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1.0);
-        self.cancelButton?.addTarget(self, action: #selector(VerloopChatViewController.cancelButtonTapped(button:)), for: UIControlEvents.touchUpInside)
-        self.view?.addSubview(self.cancelButton!)
-        self.view.bringSubview(toFront: self.cancelButton!)
-        self.cancelButton?.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[button(==60)]", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["button" : self.cancelButton!]))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[button(==20)]", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["button" : self.cancelButton!]))
+        let closeButton = UIBarButtonItem.init(title: "Close", style: UIBarButtonItemStyle.done, target: self, action: #selector(VerloopChatViewController.cancelButtonTapped(button:)))
+        self.navigationItem.leftBarButtonItem = closeButton;
         
     }
     
-    func cancelButtonTapped(button:UIButton) {
+    func cancelButtonTapped(button:UIBarButtonItem) {
        self.dismiss(animated: true, completion: nil)
     }
     
