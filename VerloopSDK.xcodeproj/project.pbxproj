@@ -14,6 +14,7 @@
 		8F186B701ED5DB3300147686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F186B6E1ED5DB3300147686 /* LaunchScreen.storyboard */; };
 		8F186B791ED5DB9700147686 /* Verloop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B781ED5DB9700147686 /* Verloop.swift */; };
 		8F186B7B1ED5DC1600147686 /* VerloopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */; };
+		8F186B7D1ED5F05C00147686 /* VerloopConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8F186B711ED5DB3300147686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F186B781ED5DB9700147686 /* Verloop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Verloop.swift; path = Verloop/Verloop.swift; sourceTree = "<group>"; };
 		8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerloopChatViewController.swift; path = Verloop/VerloopChatViewController.swift; sourceTree = "<group>"; };
+		8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerloopConfig.swift; path = Verloop/VerloopConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				8F186B781ED5DB9700147686 /* Verloop.swift */,
 				8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */,
+				8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */,
 			);
 			name = Verloop;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F186B7B1ED5DC1600147686 /* VerloopChatViewController.swift in Sources */,
+				8F186B7D1ED5F05C00147686 /* VerloopConfig.swift in Sources */,
 				8F186B681ED5DB3300147686 /* ViewController.swift in Sources */,
 				8F186B791ED5DB9700147686 /* Verloop.swift in Sources */,
 				8F186B661ED5DB3300147686 /* AppDelegate.swift in Sources */,
@@ -318,6 +322,7 @@
 				8F186B761ED5DB3300147686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,9 +13,11 @@ class VerloopChatViewController: UIViewController {
     var urlString:String?
     var webView:UIWebView?
     var cancelButton:UIButton?
-    init(chatUrl url:String) {
+    var chatTile:String?
+    init(chatUrl url:String, title:String) {
       super.init(nibName: nil, bundle: nil)
         self.urlString = url
+        self.chatTile = title;
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +30,7 @@ class VerloopChatViewController: UIViewController {
         let url:URL = URL.init(string: self.urlString!)!
         let urlRequest:URLRequest = URLRequest.init(url:url)
         self.webView!.loadRequest(urlRequest);
+        self.title = self.chatTile
     }
     
     
@@ -35,6 +38,7 @@ class VerloopChatViewController: UIViewController {
         self.webView = UIWebView.init()
         self.webView?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.webView!)
+        self.webView?.scrollView.isScrollEnabled = false;
         
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["webView" : self.webView!]))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: nil, views: ["webView" : self.webView!]))

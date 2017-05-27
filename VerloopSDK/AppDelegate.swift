@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let config = VerloopConfig.init(subDomain: "manish-stage", token: "yyy", notificationId: "c5d9890d-d090-8bd0-c18383de5f38");
+        config.name = "prashant"
+        config.email = "pkn.prashant@gmail.com"
+        config.msisdn = "9845062655"
+        Verloop.sharedInstance.register(withConfig: config);
         // Override point for customization after application launch.
         return true
     }
