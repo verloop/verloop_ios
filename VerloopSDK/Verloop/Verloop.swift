@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import OneSignal
 
 class Verloop {
     
@@ -33,9 +34,5 @@ class Verloop {
             parentViewController.present(alert, animated: true, completion: nil)
         }
     }
-    
-        
-    
-    
     
 }

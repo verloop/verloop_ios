@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6B22068A9080A37F980FD1 /* Pods_VerloopSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5447A45254A7D2F1866658AF /* Pods_VerloopSDK.framework */; };
 		8F186B661ED5DB3300147686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B651ED5DB3300147686 /* AppDelegate.swift */; };
 		8F186B681ED5DB3300147686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B671ED5DB3300147686 /* ViewController.swift */; };
 		8F186B6B1ED5DB3300147686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F186B691ED5DB3300147686 /* Main.storyboard */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23D7AE61BE5F99FCFB45D865 /* Pods-VerloopSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerloopSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerloopSDK/Pods-VerloopSDK.release.xcconfig"; sourceTree = "<group>"; };
+		5447A45254A7D2F1866658AF /* Pods_VerloopSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerloopSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83DE23173E939AB353C17342 /* Pods-VerloopSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerloopSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerloopSDK/Pods-VerloopSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		8F186B621ED5DB3300147686 /* VerloopSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerloopSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F186B651ED5DB3300147686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F186B671ED5DB3300147686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6B22068A9080A37F980FD1 /* Pods_VerloopSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D2FD2AE67866E19FFB5B2D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83DE23173E939AB353C17342 /* Pods-VerloopSDK.debug.xcconfig */,
+				23D7AE61BE5F99FCFB45D865 /* Pods-VerloopSDK.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8F186B591ED5DB3300147686 = {
 			isa = PBXGroup;
 			children = (
 				8F186B641ED5DB3300147686 /* VerloopSDK */,
 				8F186B631ED5DB3300147686 /* Products */,
+				3D2FD2AE67866E19FFB5B2D7 /* Pods */,
+				AE7E98E4ED4CA907D81134B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +97,14 @@
 			name = Verloop;
 			sourceTree = "<group>";
 		};
+		AE7E98E4ED4CA907D81134B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5447A45254A7D2F1866658AF /* Pods_VerloopSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F186B741ED5DB3300147686 /* Build configuration list for PBXNativeTarget "VerloopSDK" */;
 			buildPhases = (
+				1D758612255784CCE4554304 /* [CP] Check Pods Manifest.lock */,
 				8F186B5E1ED5DB3300147686 /* Sources */,
 				8F186B5F1ED5DB3300147686 /* Frameworks */,
 				8F186B601ED5DB3300147686 /* Resources */,
+				C4FAB272D92FA2A0DB71192A /* [CP] Embed Pods Frameworks */,
+				3A2DB8D24156BEEDB2865D53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D758612255784CCE4554304 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3A2DB8D24156BEEDB2865D53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerloopSDK/Pods-VerloopSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4FAB272D92FA2A0DB71192A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerloopSDK/Pods-VerloopSDK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8F186B5E1ED5DB3300147686 /* Sources */ = {
@@ -279,6 +354,7 @@
 		};
 		8F186B751ED5DB3300147686 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83DE23173E939AB353C17342 /* Pods-VerloopSDK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KKRREDP2E8;
@@ -292,6 +368,7 @@
 		};
 		8F186B761ED5DB3300147686 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23D7AE61BE5F99FCFB45D865 /* Pods-VerloopSDK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KKRREDP2E8;
