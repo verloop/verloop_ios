@@ -12,16 +12,19 @@ class VerloopConfig: NSObject {
     var subDomain:String
     var token:String
     var notificationId:String
+    var launchOption:[AnyHashable : Any]!
     var name:String?
     var email:String?
     var msisdn:String?
     let chatSubPath = "verloop.io/livechat"
+    var deviceToken:String?
 
     
-    init(subDomain:String, token:String, notificationId:String) {
+    init(subDomain:String, token:String, notificationId:String, _ launchOptions: [AnyHashable : Any]! = [:]) {
         self.subDomain = subDomain
         self.token = token
         self.notificationId = notificationId
+        self.launchOption = launchOptions
     }
     
     func verloopChatUrl() -> String {
@@ -37,6 +40,10 @@ class VerloopConfig: NSObject {
         
         if self.msisdn != nil {
             chatUrl += "&mobile=\(self.msisdn!)"
+        }
+        
+        if self.deviceToken != nil {
+            chatUrl += "&pid=\(self.deviceToken!)"
         }
         
         chatUrl += "&sdk=ios"

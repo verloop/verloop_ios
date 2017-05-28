@@ -9,15 +9,20 @@
 import Foundation
 import UIKit
 
+
+
 class VerloopChatViewController: UIViewController {
     var urlString:String?
     var webView:UIWebView?
     var cancelButton:UIButton?
     var chatTile:String?
-    init(chatUrl url:String, title:String) {
+    public var viewIsOutOfFocusBlock:((Void) -> Void)?
+    
+    init(chatUrl url:String, title:String, viewOutOfFocusBlock:((Void) -> Void)?) {
       super.init(nibName: nil, bundle: nil)
         self.urlString = url
         self.chatTile = title;
+        self.viewIsOutOfFocusBlock = viewOutOfFocusBlock;
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,8 +37,7 @@ class VerloopChatViewController: UIViewController {
         self.webView!.loadRequest(urlRequest);
         self.title = self.chatTile
     }
-    
-    
+        
     func setupLayout() {
         self.webView = UIWebView.init()
         self.webView?.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +53,9 @@ class VerloopChatViewController: UIViewController {
     }
     
     func cancelButtonTapped(button:UIBarButtonItem) {
-       self.dismiss(animated: true, completion: nil)
+       self.dismiss(animated: true) { 
+         self.viewIsOutOfFocusBlock!()
+        }
     }
     
 }

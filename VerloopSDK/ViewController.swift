@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapMeAction(_ sender: UIButton) {
-        Verloop.sharedInstance.showConversation(parentViewController: self);
+        Verloop.sharedInstance.showConversation();
     }
 
 }

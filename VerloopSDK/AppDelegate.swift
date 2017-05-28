@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,11 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let config = VerloopConfig.init(subDomain: "manish-stage", token: "yyy", notificationId: "c5d9890d-d090-8bd0-c18383de5f38");
+        
+        
+//        if !application.isRegisteredForRemoteNotifications {
+//            let notificationSettings = UIUserNotificationSettings(types: [UIUserNotificationType.badge, UIUserNotificationType.sound, UIUserNotificationType.alert], categories: nil)
+//            application.registerUserNotificationSettings(notificationSettings)
+//        }
+        
+        
+        let config = VerloopConfig.init(subDomain: "manish-stage", token: "yyy", notificationId: "c5d9890d-d090-481e-8bd0-c18383de5f38", launchOptions);
         config.name = "prashant"
         config.email = "pkn.prashant@gmail.com"
         config.msisdn = "9845062655"
         Verloop.sharedInstance.register(withConfig: config);
+        
         // Override point for customization after application launch.
         return true
     }
@@ -45,6 +55,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+            application.registerForRemoteNotifications()
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
+    }
+    
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("register failed")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("user infi \(userInfo)")
+    }
+
 
 
 }
