@@ -8,47 +8,17 @@
 
 import Foundation
 import UIKit
-import OneSignal
 
 class Verloop {
     
     var config:VerloopConfig?
+    var isConvScreenVisible:Bool?
     
     static let sharedInstance = Verloop()
     private init() {}
     
-    
-    @objc func applicationEnteredBackground() {
-        self.toggleNotification(shouldShow: true)
-    }
-    
     func register(withConfig config:VerloopConfig) {
         self.config = config;
-        self.initialiseOneSignal(config: config)
-        self.toggleNotification(shouldShow: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnteredBackground), name:.UIApplicationDidEnterBackground, object: nil)
-    }
-    
-    func initialiseOneSignal(config:VerloopConfig) {
-        
-        let notificationReceivedBlock: OSHandleNotificationReceivedBlock = { notification in
-            
-            print("Received Notification: \(notification!.payload.notificationID)")
-        }
-        
-        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
-            // This block gets called when the user reacts to a notification received
-            self.showConversation()
-        }
-        
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
-                                     kOSSettingsKeyInAppLaunchURL: true]
-        OneSignal.initWithLaunchOptions(config.launchOption, appId: config.notificationId, handleNotificationReceived: notificationReceivedBlock, handleNotificationAction: notificationOpenedBlock, settings: onesignalInitSettings)
-        OneSignal.promptForPushNotifications { (granted:Bool) in
-            print(granted ? "Granted" : "Not granted")
-        }
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-       
     }
     
     func showConversation() {
@@ -59,14 +29,13 @@ class Verloop {
             }
             
             if self.config != nil  {
-                self.config?.deviceToken = OneSignal.getPermissionSubscriptionState().subscriptionStatus.userId;
                 let chatUrl = self.config?.verloopChatUrl()
                 print(chatUrl!)
-                self.toggleNotification(shouldShow: false)
+                self.isConvScreenVisible = true;
                 let vc:VerloopChatViewController = VerloopChatViewController.init(chatUrl: chatUrl!, title: (self.config?.subDomain)!, viewOutOfFocusBlock: { (Void) in
-                    self.toggleNotification(shouldShow: true)
+                    self.isConvScreenVisible = false;
                 })
-                let navVC = UINavigationController.init(rootViewController: vc)
+                let navVC = VerloopNavigationViewController.init(rootViewController: vc)
                 topController.present(navVC, animated: true, completion: nil)
                 
                 
@@ -77,13 +46,18 @@ class Verloop {
             }
         }
  
-        }
-        
-    func toggleNotification(shouldShow:Bool) -> Void {
-        OneSignal.inFocusDisplayType = shouldShow ? OSNotificationDisplayType.notification : OSNotificationDisplayType.none
-
     }
     
-   
+    func isVerloopNotif(wihtNotif notif:[AnyHashable : Any]) -> Bool {
+        //Some check
+        return true;
+    }
     
+    func handleNitif(withNotif notif:[AnyHashable : Any]) {
+        self.showConversation();
+    }
+    
+    func registerForNotification(withDeviceToken deviceToke:String) {
+        self.config?.deviceToken = deviceToke;
+    }
 }

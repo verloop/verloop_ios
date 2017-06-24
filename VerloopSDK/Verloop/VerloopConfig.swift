@@ -11,8 +11,6 @@ import Foundation
 class VerloopConfig: NSObject {
     var subDomain:String
     var token:String
-    var notificationId:String
-    var launchOption:[AnyHashable : Any]!
     var name:String?
     var email:String?
     var msisdn:String?
@@ -20,11 +18,9 @@ class VerloopConfig: NSObject {
     var deviceToken:String?
 
     
-    init(subDomain:String, token:String, notificationId:String, _ launchOptions: [AnyHashable : Any]! = [:]) {
+    init(subDomain:String, token:String) {
         self.subDomain = subDomain
         self.token = token
-        self.notificationId = notificationId
-        self.launchOption = launchOptions
     }
     
     func verloopChatUrl() -> String {
@@ -43,10 +39,12 @@ class VerloopConfig: NSObject {
         }
         
         if self.deviceToken != nil {
-            chatUrl += "&pid=\(self.deviceToken!)"
+            chatUrl += "&device_token=\(self.deviceToken!)"
         }
         
         chatUrl += "&sdk=ios"
+        chatUrl += "&device_type=ios"
+        chatUrl += "&mode=popout"
         return chatUrl
         
     }

@@ -6,6 +6,5 @@ target 'VerloopSDK' do
   use_frameworks!
 
   # Pods for VerloopSDK
- pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
 end

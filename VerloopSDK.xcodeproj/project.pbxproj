@@ -16,6 +16,7 @@
 		8F186B791ED5DB9700147686 /* Verloop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B781ED5DB9700147686 /* Verloop.swift */; };
 		8F186B7B1ED5DC1600147686 /* VerloopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */; };
 		8F186B7D1ED5F05C00147686 /* VerloopConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */; };
+		8F1972BE1EFE8EE000B5B317 /* VerloopNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1972BD1EFE8EE000B5B317 /* VerloopNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8F186B781ED5DB9700147686 /* Verloop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Verloop.swift; path = Verloop/Verloop.swift; sourceTree = "<group>"; };
 		8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerloopChatViewController.swift; path = Verloop/VerloopChatViewController.swift; sourceTree = "<group>"; };
 		8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerloopConfig.swift; path = Verloop/VerloopConfig.swift; sourceTree = "<group>"; };
+		8F1972BD1EFE8EE000B5B317 /* VerloopNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerloopNavigationViewController.swift; path = Verloop/VerloopNavigationViewController.swift; sourceTree = "<group>"; };
 		8F5851441EDAAE1A001B7393 /* VerloopSDK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VerloopSDK.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				8F186B781ED5DB9700147686 /* Verloop.swift */,
 				8F186B7A1ED5DC1600147686 /* VerloopChatViewController.swift */,
 				8F186B7C1ED5F05C00147686 /* VerloopConfig.swift */,
+				8F1972BD1EFE8EE000B5B317 /* VerloopNavigationViewController.swift */,
 			);
 			name = Verloop;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			files = (
 				8F186B7B1ED5DC1600147686 /* VerloopChatViewController.swift in Sources */,
 				8F186B7D1ED5F05C00147686 /* VerloopConfig.swift in Sources */,
+				8F1972BE1EFE8EE000B5B317 /* VerloopNavigationViewController.swift in Sources */,
 				8F186B681ED5DB3300147686 /* ViewController.swift in Sources */,
 				8F186B791ED5DB9700147686 /* Verloop.swift in Sources */,
 				8F186B661ED5DB3300147686 /* AppDelegate.swift in Sources */,
