@@ -54,7 +54,9 @@ class Verloop {
     }
     
     func handleNitif(withNotif notif:[AnyHashable : Any]) {
+        if UIApplication.shared.applicationState.rawValue != UIApplicationState.active.rawValue {
         self.showConversation();
+        }
     }
     
     func registerForNotification(withDeviceToken deviceToke:String) {

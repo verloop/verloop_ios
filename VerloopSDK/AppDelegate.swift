@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         
+
+        
+        
         let config = VerloopConfig.init(subDomain: "manish.stage", token: "a11f88501ed695bf280ff02a3f02964461d84fcc6cf931917bd17fde578b1544");
         config.name = "test123"
         config.email = "pkn.prashant@gmail.com"
@@ -81,11 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print("user infi \(userInfo)")
         if Verloop.sharedInstance.isVerloopNotif(wihtNotif: userInfo) {
-//            Verloop.sharedInstance.handleNitif(withNotif: userInfo)
-            let notification = UILocalNotification()
-            notification.alertBody = userInfo["body"] as? String
-            notification.userInfo = userInfo
-            application.presentLocalNotificationNow(notification)
+            Verloop.sharedInstance.handleNitif(withNotif: userInfo)
         }
     }
 
