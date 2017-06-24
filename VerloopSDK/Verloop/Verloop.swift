@@ -50,12 +50,16 @@ class Verloop {
     
     func isVerloopNotif(wihtNotif notif:[AnyHashable : Any]) -> Bool {
         //Some check
-        return true;
+        let from:String = (notif["_by"] as? String)!
+        let isEqual = (from == "verloop")
+        return isEqual;
     }
     
     func handleNitif(withNotif notif:[AnyHashable : Any]) {
         if UIApplication.shared.applicationState.rawValue != UIApplicationState.active.rawValue {
-        self.showConversation();
+            if !self.isConvScreenVisible! {
+                self.showConversation();
+            }
         }
     }
     
