@@ -22,7 +22,7 @@ pod "VerloopSDK"
 
 ## Author
 
-Pnayak156, pkn.prashant@gmail.com
+Verloop, hello@verloop.io
 
 ## License
 
