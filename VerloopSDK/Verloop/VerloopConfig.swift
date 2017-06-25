@@ -11,9 +11,9 @@ import Foundation
 public class VerloopConfig: NSObject {
     var subDomain:String
     var token:String
-    var name:String?
-    var email:String?
-    var msisdn:String?
+    public var name:String?
+    public var email:String?
+    public var msisdn:String?
     let chatSubPath = "verloop.io/livechat"
 
     
