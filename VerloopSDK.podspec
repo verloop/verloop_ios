@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'VerloopSDK'
-s.version          = '0.1.0'
+s.version          = '0.1.2'
 s.summary          = 'This SDK allows you to integrate Verloop into your app.'
 
 s.description      = 'Verloop is a Customer Support and Engagement automation platform. iOS SDK allows you to integrate Verloop into your app and serve customers an improved and faster experience.'

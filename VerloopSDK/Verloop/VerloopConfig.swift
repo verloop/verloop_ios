@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VerloopConfig: NSObject {
+public class VerloopConfig: NSObject {
     var subDomain:String
     var token:String
     var name:String?
@@ -17,7 +17,7 @@ class VerloopConfig: NSObject {
     let chatSubPath = "verloop.io/livechat"
 
     
-    init(subDomain:String, token:String) {
+    public init(subDomain:String, token:String) {
         self.subDomain = subDomain
         self.token = token
     }

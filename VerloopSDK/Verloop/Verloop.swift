@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-class Verloop {
+public class Verloop {
     
     var config:VerloopConfig?
     var isConvScreenVisible:Bool?
     
-    static let sharedInstance = Verloop()
+    public static let sharedInstance = Verloop()
     private init() {}
     
-    func register(withConfig config:VerloopConfig) {
+    public func register(withConfig config:VerloopConfig) {
         self.config = config;
     }
     
-    func showConversation() {
+    public func showConversation() {
         
         if var topController = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
@@ -48,14 +48,14 @@ class Verloop {
  
     }
     
-    func isVerloopNotif(wihtNotif notif:[AnyHashable : Any]) -> Bool {
+    public func isVerloopNotif(wihtNotif notif:[AnyHashable : Any]) -> Bool {
         //Some check
         let from:String = (notif["_by"] as? String)!
         let isEqual = (from == "verloop")
         return isEqual;
     }
     
-    func handleNotif(withNotif notif:[AnyHashable : Any]) {
+    public func handleNotif(withNotif notif:[AnyHashable : Any]) {
         if UIApplication.shared.applicationState.rawValue != UIApplicationState.active.rawValue {
             if !self.isConvScreenVisible! {
                 self.showConversation();
@@ -63,7 +63,7 @@ class Verloop {
         }
     }
     
-    func updateDeviceToken(withDeviceToken deviceToke:String?) {
+    public func updateDeviceToken(withDeviceToken deviceToke:String?) {
         self.config?.updateDeviceToken(deviceToken: deviceToke)
     }
 }
