@@ -15,7 +15,6 @@ class VerloopConfig: NSObject {
     var email:String?
     var msisdn:String?
     let chatSubPath = "verloop.io/livechat"
-    var deviceToken:String?
 
     
     init(subDomain:String, token:String) {
@@ -38,8 +37,10 @@ class VerloopConfig: NSObject {
             chatUrl += "&mobile=\(self.msisdn!)"
         }
         
-        if self.deviceToken != nil {
-            chatUrl += "&device_token=\(self.deviceToken!)"
+        
+        
+        if  let deviceToken = self.defaultDeviceToken() {
+            chatUrl += "&device_token=\(deviceToken)"
         }
         
         chatUrl += "&sdk=ios"
@@ -47,6 +48,21 @@ class VerloopConfig: NSObject {
         chatUrl += "&mode=popout"
         return chatUrl
         
+    }
+    
+    func updateDeviceToken(deviceToken:String?) {
+        if let deviceTokenString = deviceToken {
+            self.saveDeviceToken(deviceToken: deviceTokenString)
+        }
+    }
+    
+    func saveDeviceToken(deviceToken:String) {
+        UserDefaults.standard.set(deviceToken, forKey: "device_token")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func defaultDeviceToken() -> String? {
+        return (UserDefaults.standard.value(forKey: "device_token") as? String)!
     }
     
 }

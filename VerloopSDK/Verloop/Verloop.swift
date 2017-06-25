@@ -55,7 +55,7 @@ class Verloop {
         return isEqual;
     }
     
-    func handleNitif(withNotif notif:[AnyHashable : Any]) {
+    func handleNotif(withNotif notif:[AnyHashable : Any]) {
         if UIApplication.shared.applicationState.rawValue != UIApplicationState.active.rawValue {
             if !self.isConvScreenVisible! {
                 self.showConversation();
@@ -63,7 +63,7 @@ class Verloop {
         }
     }
     
-    func registerForNotification(withDeviceToken deviceToke:String) {
-        self.config?.deviceToken = deviceToke;
+    func registerForNotification(withDeviceToken deviceToke:String?) {
+        self.config?.updateDeviceToken(deviceToken: deviceToke)
     }
 }
