@@ -5,11 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/VerloopSDK.svg?style=flat)](http://cocoapods.org/pods/VerloopSDK)
 [![Platform](https://img.shields.io/cocoapods/p/VerloopSDK.svg?style=flat)](http://cocoapods.org/pods/VerloopSDK)
 
-
-## Requirements
-
-
-
 ## Installation
 
 VerloopSDK is available through [CocoaPods](http://cocoapods.org). To install
