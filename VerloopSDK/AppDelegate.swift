@@ -17,18 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        if launchOptions != nil {
-            print("launch option \(launchOptions!)");
-
-        }
-        
-//        if !application.isRegisteredForRemoteNotifications {
-            let notificationSettings = UIUserNotificationSettings(types: [UIUserNotificationType.badge, UIUserNotificationType.sound, UIUserNotificationType.alert], categories: nil)
-            application.registerUserNotificationSettings(notificationSettings)
-//        }
-        
-        
-
+        let notificationSettings = UIUserNotificationSettings(types: [UIUserNotificationType.badge, UIUserNotificationType.sound, UIUserNotificationType.alert], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
         
         
         let config = VerloopConfig.init(subDomain: "manish.stage", token: "a11f88501ed695bf280ff02a3f02964461d84fcc6cf931917bd17fde578b1544");
@@ -37,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.msisdn = "9845062655"
         Verloop.sharedInstance.register(withConfig: config);
         
-        
-        // Override point for customization after application launch.
         return true
     }
 
@@ -72,8 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        Verloop.sharedInstance.registerForNotification(withDeviceToken: deviceTokenString);
-        print(deviceTokenString)
+        Verloop.sharedInstance.updateDeviceToken(withDeviceToken: deviceTokenString);
     }
     
     
@@ -82,9 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print("user infi \(userInfo)")
         if Verloop.sharedInstance.isVerloopNotif(wihtNotif: userInfo) {
-            Verloop.sharedInstance.handleNitif(withNotif: userInfo)
+            Verloop.sharedInstance.handleNotif(withNotif: userInfo)
         }
     }
 

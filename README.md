@@ -20,6 +20,50 @@ it, simply add the following line to your Podfile:
 pod "VerloopSDK"
 ```
 
+## Usage
+
+1. Initialise Verloop in application:didFinishLaunchingWithOptions.
+
+```ruby
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    let notificationSettings = UIUserNotificationSettings(types: [UIUserNotificationType.badge, UIUserNotificationType.sound, UIUserNotificationType.alert], categories: nil)
+    application.registerUserNotificationSettings(notificationSettings)
+
+
+    let config = VerloopConfig.init(subDomain: "name.stage", token: "test");
+    config.name = "testName"
+    config.email = "testEmail"
+    config.msisdn = "testNumber"
+    Verloop.sharedInstance.register(withConfig: config);
+    return true
+}
+```
+
+2. Update the device token in application:didRegisterForRemoteNotificationsWithDeviceToken
+
+```ruby
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+    Verloop.sharedInstance.updateDeviceToken(withDeviceToken: deviceTokenString);
+}
+```
+
+3. Handle notification 
+
+```ruby
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+    if Verloop.sharedInstance.isVerloopNotif(wihtNotif: userInfo) {
+        Verloop.sharedInstance.handleNotif(withNotif: userInfo)
+    }
+}
+```
+4. Start live chat 
+
+```ruby
+    Verloop.sharedInstance.showConversation()
+```
+
+
 ## Author
 
 Verloop, hello@verloop.io

@@ -63,7 +63,7 @@ class Verloop {
         }
     }
     
-    func registerForNotification(withDeviceToken deviceToke:String?) {
+    func updateDeviceToken(withDeviceToken deviceToke:String?) {
         self.config?.updateDeviceToken(deviceToken: deviceToke)
     }
 }
